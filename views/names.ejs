@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html lang ='en'>
+<head>
+  <meta charset="utf-8">
+<title>Attendance</title>
+</head>
+<body>
+  <form method = "POST" action = "/names">
+    <input type = "text" name = "name">
+    <input type = "submit" value= "Submit">
+  </form>
+
+  <ul>
+    <% names.forEach(function(name) { %>
+      <li><%= names %></li>
+     <% })> %>
+
+  </ul>
+
+</body>
+</html>

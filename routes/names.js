@@ -1,16 +1,24 @@
 const express = require('express');
 const router = express.Router();
 
-const names = ['Rick', 'Morty', 'Summer', 'Beth', 'Jerry'];
+const names = {
+  Rick: 1
+};
 
-router.get('/', function(res,req, next){
-  res.render('names.ejs', { names: names });
+router.get('/', function(req, res, next) {
+  return res.render('names.ejs', { names: names });
 });
 
 router.post('/', function(req, res, next){
   const name = req.body.name;
-  names.push(name);
-  res.redirect('/names')
-})
+
+  if (!names[name]) {
+    names[name] = 0;
+  }
+
+  names[name] += 1;
+
+  res.redirect('/names');
+});
 
 module.exports = router;
